@@ -1,26 +1,28 @@
 # ParkingLot
-THIS IS A PARKING TICKET ISSUING SYSTEM BUILT IN C# .NET CORE 3.1
+This is a parking ticket issuing system built in c# .net core 3.1
 
-THIS SYSTEM IS BUILT WITH THE LOGIC OF PASSING EACH COMMAND INTERACTIVELY FROM COMMAND LINE AND PROCESSING THE COMMAND BASED ON REFLECTION,
-EACH COMMAND IS MAPPED TO A EQUIVALENT REFLECTION METHOD, MAKING IT CLEANER AND EASIER TO IMPLEMENT WHEN NEW COMMANDS ARE ADDED.
-EXAMPLE:
+This system is built with the logic of passing each command interactively from command line and processing the command based on reflection,
+each command is mapped to a equivalent reflection method, making it cleaner and easier to implement when new commands are added.
+example:
   >>
-  create-parking-lot 10
-  THIS COMMAND IS COMPRISES OF TWO PART, 
-  1. COMMAND
-  2. PARAMETER
-  THE COMMAND IS MAPPED TO A EQUIVALENT METHOD, IN THIS CASE METHOD SIGNATURE WILL BE LIKE
+  >create-parking-lot 10 
   
-  create-parking-lot(string numberOfSlots);
+######  THIS STATEMENT COMPRISES OF TWO PART, 
+######    1. COMMAND
+######    2. PARAMETER
   
-THE COMMANDS ARE CATEGORIZED INTO TWO:
-  1. TASK COMMANDS
-  2. QUERY COMMANDS
+  The command is mapped to a equivalent method, in this case method signature will be like
+  
+>  create-parking-lot(string numberOfSlots);
+  
+> THE COMMANDS ARE CATEGORIZED INTO TWO:
+######  1. TASK COMMANDS
+######  2. QUERY COMMANDS
  
- LOGIC OF CREATING A PARKING LOT:
-  1. AN OBJECT CONSISTING OF AN ARRAY OF CARS WILL BE CREATED, THE SIZE OF ARRAY WILL BE THE NUMBER OF SLOTS GIVEN.
-  2. WHEN ANY CAR IS PARKED THE FIRST EMPTY SLOT IN THE ARRAY WILL BE ALLOCATED.
-  3. NO COMPLEX DATA STRUCTURE IS NEEDED TO SLOVE THIS PROBLEM, A SIMPLE ARRAY OF OBJECTS WILL SUFFICE
-  4. WHEN ANY PARK LEAVES THE LOT, THAT PARTICULAR INDEXIN ARRAY IS SET TO NULL
-  5. THE NEXT PARKED CAR WILL BE ALLOCATED A SPOT BASED ON FIRST NULLVALUE INDEX IN THE ARRAY
-  6. THIS SOLUTION ASSUMES THAT EACH CAR IS PARKED AT THE GIVEN SPOT, AND SPOT ALLOCATIONS ARE DONE SEQUENTIALLY
+> LOGIC OF CREATING A PARKING LOT:
+  1. An object consisting of an array of cars will be created, the size of array will be the number of slots given.
+  2. When any car is parked the first empty slot in the array will be allocated.
+  3. No complex data structure is needed to slove this problem, a simple array of objects will suffice
+  4. When any park leaves the lot, that particular indexin array is set to null
+  5. The next parked car will be allocated a spot based on first nullvalue index in the array
+  6. This solution assumes that each car is parked at the given spot, and spot allocations are done sequentially
