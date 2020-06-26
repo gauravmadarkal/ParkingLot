@@ -107,7 +107,7 @@ namespace ParkingLot.Router
         }
 
         /// <summary>
-        /// function used to assign a card to a parking lot
+        /// function used to assign a car to a parking lot
         /// </summary>
         /// <param name="regNo">Registration number of the car</param>
         /// <param name="color">Color of the car</param>
@@ -249,11 +249,22 @@ namespace ParkingLot.Router
         #endregion
 
         #region utilities
+        /// <summary>
+        /// utility is used to find the first index of parking slot which has no car
+        /// no car is indicated by a null entry in the array
+        /// </summary>
+        /// <returns></returns>
         private int FindFreeParkingSlot()
         {
             return Array.IndexOf(Program.ParkingLot.Cars, null);
         }
 
+        /// <summary>
+        /// this utility is used to verify the parameters are not null
+        /// it also validates and parses the slot value to integer
+        /// </summary>
+        /// <param name="value">string value to parse</param>
+        /// <returns>parsed integer value</returns>
         private int PreCheck(string value)
         {
             int parsedValue;
@@ -269,6 +280,11 @@ namespace ParkingLot.Router
                 throw new BaseException(ErrorMessage.InvalidValueForSlots);
             }
         }
+        /// <summary>
+        /// utility function is used to validate the command passed from console
+        /// </summary>
+        /// <param name="args">arguments passed from console</param>
+        /// <returns>a string array of parameters excluding the command</returns>
         private static string[] ValidateParameters(string[] args)
         {
             string[] parameters;
@@ -284,6 +300,11 @@ namespace ParkingLot.Router
             return parameters;
         }
 
+        /// <summary>
+        /// checks if the car is already in the parking lot
+        /// </summary>
+        /// <param name="regNo">This is a unque value, registration number of car to be parked</param>
+        /// <returns>conditional block to allow a car to be parked</returns>
         private bool ValidateCarExistance(string regNo)
         {
             Car car = Program.ParkingLot.Cars.Where(c => c != null && c.RegistrationNumber.Equals(regNo, StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
